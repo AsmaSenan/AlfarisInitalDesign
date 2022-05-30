@@ -11,11 +11,19 @@ ApplicationWindow {
     title: qsTr("Side Panel")
 
     property bool inPortrait: false
+    property int margin: 11
 
-    ToolBar {
+    Component.onCompleted: {
+        width = mainLayout.implicitWidth + 2 * margin
+        height = mainLayout.implicitHeight + 2 * margin
+    }
+
+    minimumWidth: mainLayout.Layout.minimumWidth + 2 * margin
+    minimumHeight: mainLayout.Layout.minimumHeight + 2 * margin
+
+    header: ToolBar {
         id: overlayHeader
 
-        z: 1
         width: parent.width
         parent: window.overlay
 
@@ -30,11 +38,15 @@ ApplicationWindow {
             onClicked: {inPortrait = !inPortrait}
         }
     }
+
+
+
+
     Drawer {
         id: drawer
 
         y: overlayHeader.height
-        width: window.width * 0.15
+        width: parent.width * 0.15
         height: window.height - overlayHeader.height
 
         modal: inPortrait
@@ -92,42 +104,62 @@ ApplicationWindow {
         }
     }
 
-    Flickable {
-        id: flickable
+    SwipeView {
+        id: swipeView
+        currentIndex: tabBar.currentIndex
+        width: !inPortrait ? window.width - drawer.width : window.width
+        anchors.right: parent.right
 
-        anchors.fill: parent
-        anchors.topMargin: overlayHeader.height
         anchors.leftMargin: !inPortrait ? drawer.width : undefined
 
-        topMargin: 20
-        bottomMargin: 20
-        contentHeight: column.height
+        Repeater {
+            model: ["First","Second","Third"]
 
-        Column {
-            id: column
-            spacing: 20
-            anchors.margins: 20
-            anchors.left: parent.left
-            anchors.right: parent.right
+            Pane {
+                width: swipeView.width
+                height: swipeView.height
 
-            Label {
-                font.pixelSize: 22
-                width: parent.width
-                elide: Label.ElideRight
-                horizontalAlignment: Qt.AlignHCenter
-                text: qsTr("Side Panel Example")
-            }
+                Column {
+                    spacing: 40
+                    width: parent.width
 
-            Label {
-                width: parent.width
-                wrapMode: Label.WordWrap
-                text: qsTr("This example demonstrates how Drawer can be used as a non-closable persistent side panel.\n\n" +
-                           "When the application is in portrait mode, the drawer is an interactive side panel that can " +
-                           "be swiped open from the left edge. When the application is in landscape mode, the drawer " +
-                           "and the content are laid out side by side.\n\nThe application is currently in %1 mode.").arg(inPortrait ? qsTr("portrait") : qsTr("landscape"))
+                    Label {
+                        id: txt1
+                        width: parent.width
+                        wrapMode: Label.Wrap
+                        horizontalAlignment: Qt.AlignHCenter
+                        font.pointSize: 20
+                        text: "TabBar is a bar with icons or text which allows the user to switch between different subtasks, views, or modes."
+                    }
+                    Rectangle{
+                        width: parent.width
+                        height: 80
+                        color: "red"
+                    }
+                }
             }
         }
-
-        ScrollIndicator.vertical: ScrollIndicator { }
     }
+
+    footer: TabBar {
+        id: tabBar
+        currentIndex: swipeView.currentIndex
+        width: !inPortrait ? window.width - drawer.width : window.width
+        anchors.right: parent.right
+
+        anchors.leftMargin: !inPortrait ? drawer.width : undefined
+        TabButton {
+            text: "First"
+        }
+        TabButton {
+            text: "Second"
+        }
+        TabButton {
+            text: "Third"
+        }
+    }
+
+
+    ScrollIndicator.vertical: ScrollIndicator { }
+
 }
