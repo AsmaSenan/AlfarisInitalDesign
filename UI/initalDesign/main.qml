@@ -103,15 +103,16 @@ ApplicationWindow {
             ScrollIndicator.vertical: ScrollIndicator { }
         }
     }
+Page{
+    width: !inPortrait ? window.width - drawer.width : window.width
+    anchors.right: parent.right
+
+    anchors.leftMargin: !inPortrait ? drawer.width : undefined
 
     SwipeView {
         id: swipeView
         currentIndex: tabBar.currentIndex
-        width: !inPortrait ? window.width - drawer.width : window.width
-        anchors.right: parent.right
-
-        anchors.leftMargin: !inPortrait ? drawer.width : undefined
-
+        anchors.fill: parent
         Repeater {
             model: ["First","Second","Third"]
 
@@ -129,7 +130,7 @@ ApplicationWindow {
                         wrapMode: Label.Wrap
                         horizontalAlignment: Qt.AlignHCenter
                         font.pointSize: 20
-                        text: "TabBar is a bar with icons or text which allows the user to switch between different subtasks, views, or modes."
+                        text: "Items"
                     }
                     Rectangle{
                         width: parent.width
@@ -141,7 +142,7 @@ ApplicationWindow {
         }
     }
 
-    footer: TabBar {
+    header: TabBar {
         id: tabBar
         currentIndex: swipeView.currentIndex
         width: !inPortrait ? window.width - drawer.width : window.width
@@ -161,5 +162,5 @@ ApplicationWindow {
 
 
     ScrollIndicator.vertical: ScrollIndicator { }
-
+}
 }
