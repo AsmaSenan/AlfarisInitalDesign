@@ -103,24 +103,22 @@ ApplicationWindow {
             ScrollIndicator.vertical: ScrollIndicator { }
         }
     }
-Page{
-    width: !inPortrait ? window.width - drawer.width : window.width
-    anchors.right: parent.right
+    Page{
+        width: !inPortrait ? window.width - drawer.width : window.width
+        anchors.right: parent.right
 
-    anchors.leftMargin: !inPortrait ? drawer.width : undefined
+        anchors.leftMargin: !inPortrait ? drawer.width : undefined
 
-    SwipeView {
-        id: swipeView
-        currentIndex: tabBar.currentIndex
-        anchors.fill: parent
-        Repeater {
-            model: ["First","Second","Third"]
-
-            Pane {
+        SwipeView {
+            id: swipeView
+            currentIndex: tabBar.currentIndex
+            anchors.fill: parent
+            Item {
+                id: page1
                 width: swipeView.width
                 height: swipeView.height
 
-                Column {
+                ColumnLayout {
                     spacing: 40
                     width: parent.width
 
@@ -132,35 +130,61 @@ Page{
                         font.pointSize: 20
                         text: "Items"
                     }
-                    Rectangle{
+
+                    EntitysTable {
                         width: parent.width
-                        height: 80
-                        color: "red"
+                        height: 500
+                        anchors.centerIn: parent
+
                     }
+
                 }
             }
+
+
+            Item {
+                id: page2
+                width: swipeView.width
+                height: swipeView.height
+                Text {
+                    text: "second"
+
+                }
+            }
+            Item {
+                id: page3
+                width: swipeView.width
+                height: swipeView.height
+                Text {
+                    text: "3th"
+                }
+            }
+
         }
+
+
+        header: TabBar {
+            id: tabBar
+            currentIndex: swipeView.currentIndex
+            width: !inPortrait ? window.width - drawer.width : window.width
+            anchors.right: parent.right
+            font.pixelSize: 16
+            anchors.leftMargin: !inPortrait ? drawer.width : undefined
+            TabButton {
+                padding: 10
+                text: "First"
+            }
+            TabButton {
+                padding: 10
+                text: "Second"
+            }
+            TabButton {
+                padding: 10
+                text: "Third"
+            }
+        }
+
+
+        ScrollIndicator.vertical: ScrollIndicator { }
     }
-
-    header: TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
-        width: !inPortrait ? window.width - drawer.width : window.width
-        anchors.right: parent.right
-
-        anchors.leftMargin: !inPortrait ? drawer.width : undefined
-        TabButton {
-            text: "First"
-        }
-        TabButton {
-            text: "Second"
-        }
-        TabButton {
-            text: "Third"
-        }
-    }
-
-
-    ScrollIndicator.vertical: ScrollIndicator { }
-}
 }
