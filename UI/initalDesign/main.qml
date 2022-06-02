@@ -113,28 +113,61 @@ ApplicationWindow {
             id: swipeView
             currentIndex: tabBar.currentIndex
             anchors.fill: parent
+
             Item {
                 id: page1
                 width: swipeView.width
                 height: swipeView.height
 
                 ColumnLayout {
-                    spacing: 40
+                    spacing: 20
                     width: parent.width
+                    height: window.height
 
-                    Label {
-                        id: txt1
-                        width: parent.width
-                        wrapMode: Label.Wrap
-                        horizontalAlignment: Qt.AlignHCenter
-                        font.pointSize: 20
-                        text: "Items"
+                    RowLayout{
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        leftMargin: 20
+                        topMargin: 20
+                        rightMargin: 20
+                        Label {
+                            id: txt1
+                            width: parent.width
+                            wrapMode: Label.Wrap
+                            font.pointSize: 20
+                            text: "Items"
+
+                        }
+                        Item {
+                            Layout.fillWidth: true
+                        }
+                        Button {
+                            id: controlBt
+                            text: qsTr("Add Item")
+                            font.pixelSize: 20
+
+
+                            contentItem: Text {
+                                text: controlBt.text
+                                font: controlBt.font
+                                opacity: enabled ? 1.0 : 0.3
+                                color: controlBt.down ? "#17a81a" : "#21be2b"
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                                elide: Text.ElideRight
+                                padding: 5
+
+                            }
+
+                        }
                     }
+
+
 
                     EntitysTable {
                         width: parent.width
-                        height: 500
-                        anchors.centerIn: parent
+                        height: window.height
+                        leftMargin:  20
 
                     }
 
@@ -172,15 +205,15 @@ ApplicationWindow {
             anchors.leftMargin: !inPortrait ? drawer.width : undefined
             TabButton {
                 padding: 10
-                text: "First"
+                text: "Entitys"
             }
             TabButton {
                 padding: 10
-                text: "Second"
+                text: "Entity Types"
             }
             TabButton {
                 padding: 10
-                text: "Third"
+                text: "Units"
             }
         }
 

@@ -1,96 +1,116 @@
-import QtQuick 2.15
+//import QtQuick 2.15
+//import Qt.labs.qmlmodels 1.0
+
+//TableView {
+//    columnSpacing: 1
+//    rowSpacing: 1
+//    clip: true
+
+//    model: TableModel {
+//        TableModelColumn { display: "name" }
+//        TableModelColumn { display: "color" }
+
+//        rows: [
+//            {
+//                "name": "cat",
+//                "color": "black"
+//            },
+//            {
+//                "name": "dog",
+//                "color": "brown"
+//            },
+//            {
+//                "name": "bird",
+//                "color": "white"
+//            }
+//        ]
+//    }
+
+//    delegate: Rectangle {
+//        implicitWidth: 200
+//        implicitHeight: 100
+//        border.width: 1
+
+//        Text {
+//            text: display
+//            anchors.centerIn: parent
+//        }
+//    }
+//}
+import QtQuick 2.12
+import QtQuick.Controls 2.5
 import Qt.labs.qmlmodels 1.0
+
 
 TableView {
     columnSpacing: 1
     rowSpacing: 1
-    clip: true
+    boundsBehavior: Flickable.StopAtBounds
 
     model: TableModel {
+        TableModelColumn { display: "id" }
+        TableModelColumn { display: "num" }
         TableModelColumn { display: "name" }
-        TableModelColumn { display: "color" }
+        TableModelColumn { display: "type" }
+        TableModelColumn { display: "amount" }
+        TableModelColumn { display: "price" }
 
+        // Each row is one type of fruit that can be ordered
         rows: [
             {
-                "name": "cat",
-                "color": "black"
+                id: "ID",
+                num: "Number",
+                name: "Name",
+                type: "Type",
+                amount: "Amount",
+                price: "Price"
             },
             {
-                "name": "dog",
-                "color": "brown"
+                // Each property is one cell/column.
+                id: 1111,
+                num: 1010,
+                name: "AAA",
+                type: "A",
+                amount: 500,
+                price: 1.50
             },
             {
-                "name": "bird",
-                "color": "white"
+                // Each property is one cell/column.
+                id: 1111,
+                num: 1010,
+                name: "BBB",
+                type: "B",
+                amount: 500,
+                price: 1.50
+            },
+            {
+                id: 2222,
+                num: 2020,
+                name: "CCC",
+                type: "C",
+                amount: 1500,
+                price: 0.50
             }
         ]
+
     }
 
-    delegate: Rectangle {
-        implicitWidth: 200
-        implicitHeight: 100
-        border.width: 1
 
-        Text {
-            text: display
-            anchors.centerIn: parent
+    delegate: DelegateChooser {
+
+        DelegateChoice {
+            column: 0
+            delegate: TextField {
+                text: model.display
+                selectByMouse: true
+                implicitWidth: 140
+                implicitHeight: 30
+                readOnly: true
+                onAccepted: model.display = text
+                horizontalAlignment: "AlignHCenter"
+                verticalAlignment: "AlignVCenter"
+            }
         }
-    }
-}
-//import QtQuick 2.12
-//import QtQuick.Controls 2.5
-//import Qt.labs.qmlmodels 1.0
-
-
-//TableView {
-//    anchors.fill: parent
-//    columnSpacing: 1
-//    rowSpacing: 1
-//    boundsBehavior: Flickable.StopAtBounds
-
-//    model: TableModel {
-//        TableModelColumn { display: "checked" }
-//        TableModelColumn { display: "amount" }
-//        TableModelColumn { display: "fruitType" }
-//        TableModelColumn { display: "fruitName" }
-//        TableModelColumn { display: "fruitPrice" }
-
-//        // Each row is one type of fruit that can be ordered
-//        rows: [
-//            {
-//                // Each property is one cell/column.
-//                checked: false,
-//                amount: 1,
-//                fruitType: "Apple",
-//                fruitName: "Granny Smith",
-//                fruitPrice: 1.50
-//            },
-//            {
-//                checked: true,
-//                amount: 4,
-//                fruitType: "Orange",
-//                fruitName: "Navel",
-//                fruitPrice: 2.50
-//            },
-//            {
-//                checked: false,
-//                amount: 1,
-//                fruitType: "Banana",
-//                fruitName: "Cavendish",
-//                fruitPrice: 3.50
-//            }
-//        ]
-
-//    }
-
-//    delegate: DelegateChooser {
-//        DelegateChoice {
-//            column: 0
-//            delegate: CheckBox {
-//                checked: model.display
-//                onToggled: model.display = checked
-//            }
-//        }
 //        DelegateChoice {
 //            column: 1
 //            delegate: SpinBox {
@@ -98,13 +118,18 @@ TableView {
 //                onValueModified: model.display = value
 //            }
 //        }
-//        DelegateChoice {
-//            delegate: TextField {
-//                text: model.display
-//                selectByMouse: true
-//                implicitWidth: 140
-//                onAccepted: model.display = text
-//            }
-//        }
-//    }
-//}
+        DelegateChoice {
+            delegate: TextField {
+                text: model.display
+                selectByMouse: true
+                implicitWidth: 140
+                implicitHeight: 30
+                onAccepted: model.display = text
+                horizontalAlignment: "AlignHCenter"
+                verticalAlignment: "AlignVCenter"
+
+
+            }
+        }
+    }
+}
