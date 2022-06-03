@@ -127,9 +127,9 @@ ApplicationWindow {
                     RowLayout{
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        leftMargin: 20
-                        topMargin: 20
-                        rightMargin: 20
+                        anchors.leftMargin: 20
+                        anchors.topMargin: 20
+                        anchors.rightMargin: 20
                         Label {
                             id: txt1
                             width: parent.width
@@ -141,24 +141,8 @@ ApplicationWindow {
                         Item {
                             Layout.fillWidth: true
                         }
-                        Button {
-                            id: controlBt
+                        ButtonStyle {
                             text: qsTr("Add Item")
-                            font.pixelSize: 20
-
-
-                            contentItem: Text {
-                                text: controlBt.text
-                                font: controlBt.font
-                                opacity: enabled ? 1.0 : 0.3
-                                color: controlBt.down ? "#17a81a" : "#21be2b"
-                                horizontalAlignment: Text.AlignHCenter
-                                verticalAlignment: Text.AlignVCenter
-                                elide: Text.ElideRight
-                                padding: 5
-
-                            }
-
                         }
                     }
 
