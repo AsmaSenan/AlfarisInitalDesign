@@ -123,33 +123,38 @@ ApplicationWindow {
                     spacing: 20
                     width: parent.width
                     height: window.height
+                    Label {
+                        id: txt1
+                        width: parent.width
+                        wrapMode: Label.Wrap
+                        font.pointSize: 20
+                        text: "Items"
+
+                    }
 
                     RowLayout{
-                        Layout.fillWidth: true
                         Layout.fillHeight: true
-                        anchors.leftMargin: 20
-                        anchors.topMargin: 20
-                        anchors.rightMargin: 20
-                        Label {
-                            id: txt1
-                            width: parent.width
-                            wrapMode: Label.Wrap
-                            font.pointSize: 20
-                            text: "Items"
+                        leftMargin:  20
 
-                        }
-                        Item {
+                        TextField {
                             Layout.fillWidth: true
+                            implicitHeight: 40
+                            placeholderText: "Search"
                         }
+
                         ButtonStyle {
-                            text: qsTr("Add Item")
+                            text: "Search"
+                        }
+
+                        ButtonStyle {
+                            text: "Add Item"
                         }
                     }
 
 
 
                     EntitysTable {
-                        width: parent.width
+                        Layout.fillWidth: true
                         height: window.height
                         leftMargin:  20
 
