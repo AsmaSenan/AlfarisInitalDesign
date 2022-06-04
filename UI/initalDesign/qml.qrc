@@ -4,7 +4,4 @@
         <file>EntitysTable.qml</file>
         <file>ButtonStyle.qml</file>
     </qresource>
-    <qresource prefix="/images">
-        <file>images/icons/menu.png</file>
-    </qresource>
 </RCC>

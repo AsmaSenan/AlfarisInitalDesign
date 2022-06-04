@@ -54,6 +54,8 @@ TableView {
         TableModelColumn { display: "type" }
         TableModelColumn { display: "amount" }
         TableModelColumn { display: "price" }
+        TableModelColumn { display: "Edite" }
+        TableModelColumn { display: "Delet" }
 
         // Each row is one type of fruit that can be ordered
         rows: [
@@ -63,7 +65,9 @@ TableView {
                 name: "Name",
                 type: "Type",
                 amount: "Amount",
-                price: "Price"
+                price: "Price",
+                edit: " ",
+                delet: " "
             },
             {
                 // Each property is one cell/column.
@@ -99,25 +103,20 @@ TableView {
     delegate: DelegateChooser {
 
         DelegateChoice {
-            column: 0
-            delegate: TextField {
-                text: model.display
-                selectByMouse: true
-                implicitWidth: 140
-                implicitHeight: 30
-                readOnly: true
-                onAccepted: model.display = text
-                horizontalAlignment: "AlignHCenter"
-                verticalAlignment: "AlignVCenter"
+            column: 6
+            delegate: Button {
+                icon.name: "edit"
+                icon.source: "images/edit.png"
             }
         }
-//        DelegateChoice {
-//            column: 1
-//            delegate: SpinBox {
-//                value: model.display
-//                onValueModified: model.display = value
-//            }
-//        }
+        DelegateChoice {
+            column: 7
+            delegate: Button {
+                icon.name: "edit"
+                icon.source: "images/delete.png"
+            }
+        }
+
         DelegateChoice {
             delegate: TextField {
                 text: model.display

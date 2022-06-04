@@ -131,7 +131,8 @@ ApplicationWindow {
                         wrapMode: Label.Wrap
                         font.pointSize: 20
                         text: "Items"
-
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        topPadding: 30
                     }
 
                     RowLayout{
@@ -144,7 +145,25 @@ ApplicationWindow {
                         TextField {
                             Layout.fillWidth: true
                             implicitHeight: 40
+                            verticalAlignment : TextInput.AlignVCenter
+                            font.pointSize: 12
                             placeholderText: "Search"
+
+                        }
+                        ComboBox {
+                            implicitHeight: 40
+                            implicitWidth: 100
+                            editable: true
+                            model: ListModel {
+                                id: model
+                                ListElement { text: "Number" }
+                                ListElement { text: "Name" }
+                                ListElement { text: "Foreign Name" }
+                            }
+                            onAccepted: {
+                                if (find(editText) === -1)
+                                    model.append({text: editText})
+                            }
                         }
 
                         ButtonStyle {
