@@ -109,6 +109,7 @@ ApplicationWindow {
 
         anchors.leftMargin: !inPortrait ? drawer.width : undefined
 
+
         SwipeView {
             id: swipeView
             currentIndex: tabBar.currentIndex
@@ -118,6 +119,7 @@ ApplicationWindow {
                 id: page1
                 width: swipeView.width
                 height: swipeView.height
+
 
                 ColumnLayout {
                     spacing: 20
@@ -133,8 +135,11 @@ ApplicationWindow {
                     }
 
                     RowLayout{
+                        Layout.fillWidth: true
                         Layout.fillHeight: true
-                        leftMargin:  20
+                        Item{
+                            width: 20
+                        }
 
                         TextField {
                             Layout.fillWidth: true
@@ -149,13 +154,16 @@ ApplicationWindow {
                         ButtonStyle {
                             text: "Add Item"
                         }
+                        Item{
+                            width: 20
+                        }
                     }
 
 
 
                     EntitysTable {
                         Layout.fillWidth: true
-                        height: window.height
+                        Layout.fillHeight: true
                         leftMargin:  20
 
                     }
