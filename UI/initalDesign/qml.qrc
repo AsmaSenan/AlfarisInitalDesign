@@ -5,6 +5,6 @@
         <file>ButtonStyle.qml</file>
         <file>DrawerList.qml</file>
         <file>Invoices.qml</file>
-        <file>addForm.qml</file>
+        <file>AddForm.qml</file>
     </qresource>
 </RCC>

@@ -114,11 +114,40 @@ ApplicationWindow {
                         }
 
                         ButtonStyle {
+                            onClicked: winld.active = true
+
                             text: "Add Item"
-                            onClicked: {
-                                var component = Qt.createComponent("addForm.qml");
-                                win = component.createObject(window);
-                                win.show();
+                            enabled: winld.active ? false : true
+
+                            Loader {
+                                id: winld
+                                active: false
+                                sourceComponent: Window {
+                                    id: appWindow
+                                    title: "Basic layouts"
+                                    property int margin: 11
+                                    flags: Qt.WindowStaysOnTopHint
+
+
+                                    Component.onCompleted: {
+                                        width = mainLayout.implicitWidth + 2 * margin
+                                        height = mainLayout.implicitHeight + 2 * margin
+                                    }
+
+                                    minimumWidth: mainLayout.Layout.minimumWidth + 2 * margin
+                                    minimumHeight: mainLayout.Layout.minimumHeight + 2 * margin
+
+//                                    color: 'green'
+                                    visible: true
+                                    onClosing: winld.active = false
+
+                                    AddForm {
+                                        id: mainLayout
+                                        anchors.fill: parent
+                                        anchors.margins: appWindow.margin
+                                    }
+
+                                }
                             }
 
                         }
