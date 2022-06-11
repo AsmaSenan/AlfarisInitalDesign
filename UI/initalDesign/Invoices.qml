@@ -42,9 +42,74 @@ ApplicationWindow {
 
 
 
-    DrawerList{
+    Drawer{
         id: drawer
+        y: overlayHeader.height
+        width: parent.width * 0.15
+        height: window.height - overlayHeader.height
+
+        modal: inPortrait
+        interactive: inPortrait
+        position: inPortrait ? 0 : 1
+        visible: !inPortrait
+
+        ListView {
+            id: listView
+            anchors.fill: parent
+
+            headerPositioning: ListView.OverlayHeader
+            header: Pane {
+                id: header
+                z: 2
+                width: parent.width
+
+                contentHeight: logo.height
+
+                Image {
+                    id: logo
+                    width: parent.width
+                    source: "images/qt-logo.png"
+                    fillMode: implicitWidth > width ? Image.PreserveAspectFit : Image.Pad
+                }
+
+                MenuSeparator {
+                    parent: header
+                    width: parent.width
+                    anchors.verticalCenter: parent.bottom
+                    visible: !listView.atYBeginning
+                }
+            }
+
+//            footer: ItemDelegate {
+//                id: footer
+//                text: qsTr("Footer")
+//                width: parent.width
+
+//                MenuSeparator {
+//                    parent: footer
+//                    width: parent.width
+//                    anchors.verticalCenter: parent.top
+//                }
+//            }
+
+            model: ListModel {
+                ListElement { title: "Clints"; source: "qrc:/" }
+                ListElement { title: "Invoices"; source: "qrc:/" }
+                ListElement { title: "Payments"; source: "qrc:/" }
+                ListElement { title: "Entitys"; source: "qrc:/main.qml" }
+//                ListElement { title: "DelayButton"; source: "qrc:/pages/DelayButtonPage.qml" }
+//                ListElement { title: "Dial"; source: "qrc:/pages/DialPage.qml" }
+            }
+            delegate: ItemDelegate {
+                text: model.title
+                    width: parent.width
+            }
+
+            ScrollIndicator.vertical: ScrollIndicator { }
+        }
+
     }
+
 
     Page{
         width: !inPortrait ? window.width - drawer.width : window.width

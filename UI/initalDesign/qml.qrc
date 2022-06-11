@@ -3,5 +3,7 @@
         <file>main.qml</file>
         <file>EntitysTable.qml</file>
         <file>ButtonStyle.qml</file>
+        <file>DrawerList.qml</file>
+        <file>Invoices.qml</file>
     </qresource>
 </RCC>

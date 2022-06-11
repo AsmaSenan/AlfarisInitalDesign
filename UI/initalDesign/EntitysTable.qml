@@ -55,7 +55,7 @@ TableView {
         TableModelColumn { display: "amount" }
         TableModelColumn { display: "price" }
         TableModelColumn { display: "Edite" }
-        TableModelColumn { display: "Delet" }
+        TableModelColumn { display: "Delete" }
 
         // Each row is one type of fruit that can be ordered
         rows: [
@@ -67,7 +67,7 @@ TableView {
                 amount: "Amount",
                 price: "Price",
                 edit: " ",
-                delet: " "
+                delete: " "
             },
             {
                 // Each property is one cell/column.
