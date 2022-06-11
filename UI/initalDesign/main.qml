@@ -115,6 +115,12 @@ ApplicationWindow {
 
                         ButtonStyle {
                             text: "Add Item"
+                            onClicked: {
+                                var component = Qt.createComponent("addForm.qml");
+                                win = component.createObject(window);
+                                win.show();
+                            }
+
                         }
                         Item{
                             width: 20
