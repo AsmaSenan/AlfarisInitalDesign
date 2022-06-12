@@ -93,14 +93,18 @@ ColumnLayout {
             }
             TextArea {
                 id: notes
-                placeholderText: "This fills the whole cell \n \n \n \n"
+                placeholderText: "\n \n \n This fills the whole cell \n \n \n"
                 Layout.columnSpan: 5
                 wrapMode: TextArea.Wrap
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                implicitHeight: 40
-                verticalAlignment : TextInput.AlignVCenter
-                font.pointSize: 8
+                verticalAlignment : Qt.AlignVCenter
+                font.pointSize: 10
+                background: Rectangle {
+                    radius: 2
+                    border.color: "#9c9c9c"
+                    border.width: 1
+}
 
             }
 
@@ -112,10 +116,35 @@ ColumnLayout {
                 Layout.fillWidth: true
                 Layout.minimumHeight: implicitHeight
             }
-            Label { text: "End Date" }
-            Label { text: "الكمية المتوفرة" }
-            Label { text: "كمية الطلب" }
-            Label { text: "أقل كمية" }
+            Label {
+                text: "End Date"
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignRight
+                verticalAlignment: Text.AlignVCenter
+            }
+            Label {
+                text: "الكمية المتوفرة"
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignRight
+                verticalAlignment: Text.AlignVCenter
+            }
+            Label {
+                text: "كمية الطلب"
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignRight
+                verticalAlignment: Text.AlignVCenter
+            }
+            Label {
+                text: "أقل كمية"
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignRight
+                verticalAlignment: Text.AlignVCenter
+
+            }
 
             //5th column
             Label { text: "Type" }

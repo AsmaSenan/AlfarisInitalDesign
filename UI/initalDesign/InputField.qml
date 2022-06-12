@@ -6,4 +6,5 @@ TextField {
     implicitHeight: 40
     font.pointSize: 10
     topPadding: 10
+    leftPadding: 5
 }
