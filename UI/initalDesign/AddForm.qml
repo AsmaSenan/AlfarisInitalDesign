@@ -6,24 +6,6 @@ import QtQuick.Layouts
 
 ColumnLayout {
 
-    GroupBox {
-        id: rowBox
-        title: "Row layout"
-        Layout.fillWidth: true
-        Layout.minimumWidth: rowLayout.Layout.minimumWidth + 30
-
-        RowLayout {
-            id: rowLayout
-            anchors.fill: parent
-            TextField {
-                placeholderText: "This wants to grow horizontally"
-                Layout.fillWidth: true
-            }
-            Button {
-                text: "Button"
-            }
-        }
-    }
 
     GroupBox {
         id: gridBox
@@ -33,28 +15,129 @@ ColumnLayout {
 
         GridLayout {
             id: gridLayout
-            rows: 3
+            columns: 7
+            rows: 8
             flow: GridLayout.TopToBottom
             anchors.fill: parent
 
-            Label { text: "Line 1" }
-            Label { text: "Line 2" }
-            Label { text: "Line 3" }
+            Item {
+                Label{
+                    text: "image"
+                }
 
-            TextField { }
-            TextField { }
-            TextField { }
-
-            TextArea {
-                text: "This widget spans over three rows in the GridLayout.\n"
-                      + "All items in the GridLayout are implicitly positioned from top to bottom."
-                wrapMode: TextArea.WordWrap
-                Layout.rowSpan: 3
+                Layout.rowSpan: 8
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: implicitHeight
                 Layout.minimumWidth: 100     // guesstimate, should be size of largest word
             }
+
+            //2end col
+            Label { text: "Number" }
+            Label { text: "Name" }
+            Label { text: "Forign Name" }
+            Label { text: "Start Date" }
+            Label { text: "رقم المخزون" }
+            Label { text: "الكمية القصوى" }
+            Label { text: "السعر" }
+            Label { text: "ملاحظات" }
+
+            //3th col
+            TextField {
+              placeholderText: "Number"
+            }
+            TextField {
+                placeholderText: "Nmae"
+                Layout.columnSpan: 5
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
+
+            }
+            TextField {
+                placeholderText: "F Nmae"
+                Layout.columnSpan: 5
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
+
+            }
+            TextField {
+                placeholderText: "Start date"
+                Layout.columnSpan: 2
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
+
+            }
+            TextField {
+                placeholderText: "رقم المخزون"
+                Layout.columnSpan: 2
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
+
+            }
+            TextField {
+                placeholderText: "الكمية القصوى"
+                Layout.columnSpan: 2
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
+            }
+            TextField {
+                placeholderText: "السعر"
+                Layout.columnSpan: 2
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
+
+            }
+            TextArea {
+                id: notes
+                placeholderText: "This fills the whole cell"
+                Layout.columnSpan: 5
+
+                Layout.minimumHeight: implicitHeight
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+            }
+
+            //4th col
+            Label { text: "Id" }
+            TextField {
+                placeholderText: "Id"
+            }
+            Label { text: "End Date" }
+            Label { text: "الكمية المتوفرة" }
+            Label { text: "كمية الطلب" }
+            Label { text: "أقل كمية" }
+
+            //5th column
+Label { text: "Type" }
+            TextField {
+                placeholderText: "end date"
+                Layout.columnSpan: 2
+            }
+
+            TextField {
+                placeholderText: "الكمية المتوفرة"
+                Layout.columnSpan: 2
+            }
+            TextField {
+                placeholderText: "كمية الطلب"
+                Layout.columnSpan: 2
+            }
+            TextField {
+                placeholderText: "أقل كمية"
+                Layout.columnSpan: 2
+            }
+            TextField {
+                placeholderText: "Type"
+            }
+
+
+
         }
     }
     TextArea {
@@ -102,7 +185,6 @@ ColumnLayout {
         RowLayout {
             id: rowBtnLayout
             anchors.fill: parent
-            Layout.alignment: Qt.AlignHCenter
 
             Item{
                 Layout.fillWidth: true

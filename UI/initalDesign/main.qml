@@ -130,12 +130,12 @@ ApplicationWindow {
 
 
                                     Component.onCompleted: {
-                                        width = mainLayout.implicitWidth + 2 * margin
-                                        height = mainLayout.implicitHeight + 2 * margin
+                                        width = mainLayout.implicitWidth + 30 * margin
+                                        height = mainLayout.implicitHeight + 10 * margin
                                     }
 
-                                    minimumWidth: mainLayout.Layout.minimumWidth + 2 * margin
-                                    minimumHeight: mainLayout.Layout.minimumHeight + 2 * margin
+                                    minimumWidth: mainLayout.Layout.minimumWidth + 30 * margin
+                                    minimumHeight: mainLayout.Layout.minimumHeight + 10 * margin
 
 //                                    color: 'green'
                                     visible: true
