@@ -43,70 +43,74 @@ ColumnLayout {
             Label { text: "ملاحظات" }
 
             //3th col
-            TextField {
-              placeholderText: "Number"
+            InputField {
+                placeholderText: "Number"
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
             }
-            TextField {
+            InputField {
                 placeholderText: "Nmae"
                 Layout.columnSpan: 5
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: implicitHeight
-
             }
-            TextField {
+            InputField {
                 placeholderText: "F Nmae"
                 Layout.columnSpan: 5
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: implicitHeight
-
             }
-            TextField {
+            InputField {
                 placeholderText: "Start date"
                 Layout.columnSpan: 2
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: implicitHeight
-
             }
-            TextField {
+            InputField {
                 placeholderText: "رقم المخزون"
                 Layout.columnSpan: 2
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: implicitHeight
-
             }
-            TextField {
+            InputField {
                 placeholderText: "الكمية القصوى"
                 Layout.columnSpan: 2
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: implicitHeight
             }
-            TextField {
+            InputField {
                 placeholderText: "السعر"
                 Layout.columnSpan: 2
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumHeight: implicitHeight
-
             }
             TextArea {
                 id: notes
-                placeholderText: "This fills the whole cell"
+                placeholderText: "This fills the whole cell \n \n \n \n"
                 Layout.columnSpan: 5
-
-                Layout.minimumHeight: implicitHeight
+                wrapMode: TextArea.Wrap
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                implicitHeight: 40
+                verticalAlignment : TextInput.AlignVCenter
+                font.pointSize: 8
+
             }
 
             //4th col
             Label { text: "Id" }
-            TextField {
+            InputField {
                 placeholderText: "Id"
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
             }
             Label { text: "End Date" }
             Label { text: "الكمية المتوفرة" }
@@ -114,66 +118,44 @@ ColumnLayout {
             Label { text: "أقل كمية" }
 
             //5th column
-Label { text: "Type" }
-            TextField {
+            Label { text: "Type" }
+            InputField {
                 placeholderText: "end date"
                 Layout.columnSpan: 2
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
             }
-
-            TextField {
+            InputField {
                 placeholderText: "الكمية المتوفرة"
                 Layout.columnSpan: 2
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
             }
-            TextField {
+            InputField {
                 placeholderText: "كمية الطلب"
                 Layout.columnSpan: 2
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
             }
-            TextField {
+            InputField {
                 placeholderText: "أقل كمية"
                 Layout.columnSpan: 2
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
             }
-            TextField {
+            InputField {
                 placeholderText: "Type"
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.minimumHeight: implicitHeight
             }
 
 
 
-        }
-    }
-    TextArea {
-        id: t3
-        text: "This fills the whole cell"
-        Layout.minimumHeight: 30
-        Layout.fillHeight: true
-        Layout.fillWidth: true
-    }
-    GroupBox {
-        id: stackBox
-        title: "Stack layout"
-        implicitWidth: 200
-        implicitHeight: 60
-        Layout.minimumHeight: 60
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        StackLayout {
-            id: stackLayout
-            anchors.fill: parent
-
-            function advance() { currentIndex = (currentIndex + 1) % count }
-
-            Repeater {
-                id: stackRepeater
-                model: 5
-                Rectangle {
-                    required property int index
-                    color: Qt.hsla((0.5 + index) / stackRepeater.count, 0.3, 0.7, 1)
-                    Button {
-                        anchors.centerIn: parent
-                        text: "Page " + (parent.index + 1)
-                        onClicked: { stackLayout.advance() }
-                    }
-                }
-            }
         }
     }
     GroupBox {

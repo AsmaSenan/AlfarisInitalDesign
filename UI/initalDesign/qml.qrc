@@ -6,5 +6,6 @@
         <file>DrawerList.qml</file>
         <file>Invoices.qml</file>
         <file>AddForm.qml</file>
+        <file>InputField.qml</file>
     </qresource>
 </RCC>
