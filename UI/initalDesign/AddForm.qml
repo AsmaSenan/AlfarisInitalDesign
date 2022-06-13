@@ -202,11 +202,16 @@ ColumnLayout {
             }
 
             ButtonStyle {
-                text: "Button"
+                txt: "Button"
+                btnColor: "#337ab7"
+                txtColor: hovered? "blak": "white"
 
             }
             ButtonStyle {
-                text: "close"
+                txt: "close"
+                btnColor: "#d9534f"
+                txtColor: hovered? "blak": "white"
+
                 onClicked: close()
             }
             Item{

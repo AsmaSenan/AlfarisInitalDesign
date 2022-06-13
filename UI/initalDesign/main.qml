@@ -93,6 +93,13 @@ ApplicationWindow {
                             placeholderText: "Search"
 
                         }
+                        Label{
+                            text: "in"
+                            font.pointSize: 12
+                            Layout.leftMargin: 8
+                            Layout.rightMargin: 8
+                        }
+
                         ComboBox {
                             implicitHeight: 40
                             implicitWidth: 100
@@ -110,14 +117,18 @@ ApplicationWindow {
                         }
 
                         ButtonStyle {
-                            text: "Search"
+                            txt: "Search"
+//                            btnColor: "gray"
+                            txtColor: "black"
+
                         }
 
                         ButtonStyle {
                             onClicked: winld.active = true
-
-                            text: "Add Item"
+                            txt: "Add Item"
                             enabled: winld.active ? false : true
+                            btnColor: "#309afc"
+                            txtColor: hovered? "blak": "white"
 
                             Loader {
                                 id: winld

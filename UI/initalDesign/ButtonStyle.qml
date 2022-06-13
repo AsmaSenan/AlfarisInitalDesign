@@ -4,10 +4,27 @@ import QtQuick.Controls
 
 Button {
     id: button
+    property alias btnColor :  rec.color
+    property alias txtColor : buttonText.color
+    property alias txt : buttonText.text
+
+    contentItem: Text {
+        id: buttonText
+        text: txt
+        color: txtColor
+        font: control.font
+        opacity: enabled ? 1.0 : 0.3
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        elide: Text.ElideRight
+
+    }
+
     background: Rectangle {
+        id: rec
         implicitWidth: 100
         implicitHeight: 40
-        color: button.down ? "#d6d6d6" : "#f6f6f6"
+        color: btnColor
         border.color: "#26282a"
         border.width: 1
         radius: 4
