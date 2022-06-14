@@ -71,12 +71,12 @@ TableView {
                 icon.name: "edit"
                 icon.source: "/images/icons/images/icons/edit.png"
                 background: Rectangle {
-                            CustomBorder
-                            {
-                                commonBorder: true
-commonBorderWidth: 1
-                                borderColor: "#9c9c9c"
-                            }
+                    CustomBorder
+                    {
+                        commonBorder: true
+                        commonBorderWidth: 1
+                        borderColor: "#9c9c9c"
+                    }
 
 
                 }
@@ -92,12 +92,12 @@ commonBorderWidth: 1
                 icon.name: "edit"
                 icon.source: "/images/icons/images/icons/delete.png"
                 background: Rectangle {
-                            CustomBorder
-                            {
-                                commonBorder: true
-commonBorderWidth: 1
-borderColor: "#9c9c9c"
-                            }
+                    CustomBorder
+                    {
+                        commonBorder: true
+                        commonBorderWidth: 1
+                        borderColor: "#9c9c9c"
+                    }
 
 
                 }
@@ -110,18 +110,18 @@ borderColor: "#9c9c9c"
             delegate: TextField {
                 text: model.display
                 selectByMouse: true
-                implicitWidth: 140
+                implicitWidth: 150
                 implicitHeight: 30
                 onAccepted: model.display = text
                 horizontalAlignment: "AlignHCenter"
                 verticalAlignment: "AlignVCenter"
                 background: Rectangle {
-                            CustomBorder
-                            {
-                                commonBorder: true
-commonBorderWidth: 1
-                                borderColor: "#9c9c9c"
-                            }
+                    CustomBorder
+                    {
+                        commonBorder: true
+                        commonBorderWidth: 1
+                        borderColor: "#9c9c9c"
+                    }
 
 
                 }
@@ -130,11 +130,11 @@ commonBorderWidth: 1
         }
 
     }
-//    Rectangle {
-//        color: "white"
-//        anchors.fill: parent
-//        height: 1
-//    }
+    //    Rectangle {
+    //        color: "white"
+    //        anchors.fill: parent
+    //        height: 1
+    //    }
 
 
 }

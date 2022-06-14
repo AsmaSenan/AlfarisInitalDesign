@@ -58,6 +58,7 @@ ApplicationWindow {
             currentIndex: tabBar.currentIndex
             anchors.fill: parent
 
+
             Item {
                 id: page1
                 width: swipeView.width
@@ -77,6 +78,7 @@ ApplicationWindow {
                         font.pointSize: 20
                         text: "Items"
                         anchors.horizontalCenter: parent.horizontalCenter
+                        horizontalAlignment: Qt.AlignHCenter
                         topPadding: 30
                     }
 
@@ -170,70 +172,64 @@ ApplicationWindow {
                         }
                     }
 
-RowLayout{
-    anchors.horizontalCenter: parent.horizontalCenter
-    Item {
-        Layout.fillWidth: true
-    }
+
 
                         EntitysTable {
                             id: mainTable
                             Layout.fillWidth: true
                             Layout.fillHeight: true
+                            leftMargin: 22
                         }
-                        Item {
-                            Layout.fillWidth: true
-                        }
-}
-                    }
 
-            }
-
-
-                Item {
-                    id: page2
-                    width: swipeView.width
-                    height: swipeView.height
-                    Text {
-                        text: "second"
-
-                    }
-                }
-                Item {
-                    id: page3
-                    width: swipeView.width
-                    height: swipeView.height
-                    Text {
-                        text: "3th"
-                    }
                 }
 
             }
 
 
-            header: TabBar {
-                id: tabBar
-                currentIndex: swipeView.currentIndex
-                width: !inPortrait ? window.width - drawer.width : window.width
-                anchors.right: parent.right
-                font.pixelSize: 16
-                anchors.leftMargin: !inPortrait ? drawer.width : undefined
-                TabButton {
-                    padding: 10
-                    text: "Entitys"
+            Item {
+                id: page2
+                width: swipeView.width
+                height: swipeView.height
+                Text {
+                    text: "second"
+
                 }
-                TabButton {
-                    padding: 10
-                    text: "Entity Types"
-                }
-                TabButton {
-                    padding: 10
-                    text: "Units"
+            }
+            Item {
+                id: page3
+                width: swipeView.width
+                height: swipeView.height
+                Text {
+                    text: "3th"
                 }
             }
 
-
-            ScrollIndicator.vertical: ScrollIndicator { }
         }
+
+
+        header: TabBar {
+            id: tabBar
+            currentIndex: swipeView.currentIndex
+            width: !inPortrait ? window.width - drawer.width : window.width
+            anchors.right: parent.right
+            font.pixelSize: 16
+            anchors.leftMargin: !inPortrait ? drawer.width : undefined
+            TabButton {
+                padding: 10
+                text: "Entitys"
+            }
+            TabButton {
+                padding: 10
+                text: "Entity Types"
+            }
+            TabButton {
+                padding: 10
+                text: "Units"
+            }
+        }
+
+
+        ScrollIndicator.vertical: ScrollIndicator { }
     }
+}
 
