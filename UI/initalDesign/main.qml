@@ -9,7 +9,7 @@ ApplicationWindow {
     height: 950
     visible: true
     title: qsTr("Side Panel")
-
+    color: "#F1F1F1"
     property bool inPortrait: false
     property int margin: 11
 
@@ -68,6 +68,8 @@ ApplicationWindow {
                     spacing: 20
                     width: parent.width
                     height: window.height
+
+
                     Label {
                         id: txt1
                         width: parent.width
@@ -106,6 +108,7 @@ ApplicationWindow {
                             editable: true
                             model: ListModel {
                                 id: model
+                                ListElement { text: "All fields" }
                                 ListElement { text: "Number" }
                                 ListElement { text: "Name" }
                                 ListElement { text: "Foreign Name" }
@@ -118,7 +121,7 @@ ApplicationWindow {
 
                         ButtonStyle {
                             txt: "Search"
-//                            btnColor: "gray"
+                            //                            btnColor: "gray"
                             txtColor: "black"
 
                         }
@@ -148,7 +151,7 @@ ApplicationWindow {
                                     minimumWidth: mainLayout.Layout.minimumWidth + 40 * margin
                                     minimumHeight: mainLayout.Layout.minimumHeight + 10 * margin
 
-//                                    color: 'green'
+                                    //                                    color: 'green'
                                     visible: true
                                     onClosing: winld.active = false
 
@@ -167,62 +170,70 @@ ApplicationWindow {
                         }
                     }
 
+RowLayout{
+    anchors.horizontalCenter: parent.horizontalCenter
+    Item {
+        Layout.fillWidth: true
+    }
 
-
-                    EntitysTable {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        leftMargin:  20
-
+                        EntitysTable {
+                            id: mainTable
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                        }
+                        Item {
+                            Layout.fillWidth: true
+                        }
+}
                     }
 
+            }
+
+
+                Item {
+                    id: page2
+                    width: swipeView.width
+                    height: swipeView.height
+                    Text {
+                        text: "second"
+
+                    }
+                }
+                Item {
+                    id: page3
+                    width: swipeView.width
+                    height: swipeView.height
+                    Text {
+                        text: "3th"
+                    }
+                }
+
+            }
+
+
+            header: TabBar {
+                id: tabBar
+                currentIndex: swipeView.currentIndex
+                width: !inPortrait ? window.width - drawer.width : window.width
+                anchors.right: parent.right
+                font.pixelSize: 16
+                anchors.leftMargin: !inPortrait ? drawer.width : undefined
+                TabButton {
+                    padding: 10
+                    text: "Entitys"
+                }
+                TabButton {
+                    padding: 10
+                    text: "Entity Types"
+                }
+                TabButton {
+                    padding: 10
+                    text: "Units"
                 }
             }
 
 
-            Item {
-                id: page2
-                width: swipeView.width
-                height: swipeView.height
-                Text {
-                    text: "second"
-
-                }
-            }
-            Item {
-                id: page3
-                width: swipeView.width
-                height: swipeView.height
-                Text {
-                    text: "3th"
-                }
-            }
-
+            ScrollIndicator.vertical: ScrollIndicator { }
         }
-
-
-        header: TabBar {
-            id: tabBar
-            currentIndex: swipeView.currentIndex
-            width: !inPortrait ? window.width - drawer.width : window.width
-            anchors.right: parent.right
-            font.pixelSize: 16
-            anchors.leftMargin: !inPortrait ? drawer.width : undefined
-            TabButton {
-                padding: 10
-                text: "Entitys"
-            }
-            TabButton {
-                padding: 10
-                text: "Entity Types"
-            }
-            TabButton {
-                padding: 10
-                text: "Units"
-            }
-        }
-
-
-        ScrollIndicator.vertical: ScrollIndicator { }
     }
-}
+

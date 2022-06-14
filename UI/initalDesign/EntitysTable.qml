@@ -1,42 +1,4 @@
-//import QtQuick 2.15
-//import Qt.labs.qmlmodels 1.0
 
-//TableView {
-//    columnSpacing: 1
-//    rowSpacing: 1
-//    clip: true
-
-//    model: TableModel {
-//        TableModelColumn { display: "name" }
-//        TableModelColumn { display: "color" }
-
-//        rows: [
-//            {
-//                "name": "cat",
-//                "color": "black"
-//            },
-//            {
-//                "name": "dog",
-//                "color": "brown"
-//            },
-//            {
-//                "name": "bird",
-//                "color": "white"
-//            }
-//        ]
-//    }
-
-//    delegate: Rectangle {
-//        implicitWidth: 200
-//        implicitHeight: 100
-//        border.width: 1
-
-//        Text {
-//            text: display
-//            anchors.centerIn: parent
-//        }
-//    }
-//}
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import Qt.labs.qmlmodels 1.0
@@ -105,15 +67,42 @@ TableView {
         DelegateChoice {
             column: 6
             delegate: Button {
+                implicitHeight: 30
                 icon.name: "edit"
-                icon.source: "images/edit.png"
+                icon.source: "/images/icons/images/icons/edit.png"
+                background: Rectangle {
+                            CustomBorder
+                            {
+                                commonBorder: true
+commonBorderWidth: 1
+                                borderColor: "#9c9c9c"
+                            }
+
+
+                }
+
+
             }
         }
         DelegateChoice {
             column: 7
             delegate: Button {
+                implicitHeight: 30
+
                 icon.name: "edit"
-                icon.source: "images/delete.png"
+                icon.source: "/images/icons/images/icons/delete.png"
+                background: Rectangle {
+                            CustomBorder
+                            {
+                                commonBorder: true
+commonBorderWidth: 1
+borderColor: "#9c9c9c"
+                            }
+
+
+                }
+
+
             }
         }
 
@@ -126,9 +115,26 @@ TableView {
                 onAccepted: model.display = text
                 horizontalAlignment: "AlignHCenter"
                 verticalAlignment: "AlignVCenter"
+                background: Rectangle {
+                            CustomBorder
+                            {
+                                commonBorder: true
+commonBorderWidth: 1
+                                borderColor: "#9c9c9c"
+                            }
 
+
+                }
 
             }
         }
+
     }
+//    Rectangle {
+//        color: "white"
+//        anchors.fill: parent
+//        height: 1
+//    }
+
+
 }
