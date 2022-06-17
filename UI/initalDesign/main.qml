@@ -178,7 +178,7 @@ ApplicationWindow {
                             id: mainTable
                             Layout.fillWidth: true
                             Layout.fillHeight: true
-                            leftMargin: 22
+                            leftMargin: 24
                         }
 
                 }

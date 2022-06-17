@@ -28,8 +28,8 @@ TableView {
                 type: "Type",
                 amount: "Amount",
                 price: "Price",
-                edit: " ",
-                delete: " "
+                edit: "/",
+                delete: "/"
             },
             {
                 // Each property is one cell/column.
