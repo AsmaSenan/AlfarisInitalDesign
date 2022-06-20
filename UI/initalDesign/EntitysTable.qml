@@ -5,11 +5,26 @@ import Qt.labs.qmlmodels 1.0
 
 
 TableView {
+    function insertNewRow(){
+
+        tableModel.insertRow(1, {
+                                 id:  "",
+                                 num:  "",
+                                 name: "",
+                                 type: "",
+                                 amount: 0,
+                                 price: 0,
+                                 edit: "",
+                                 delete: ""
+
+                             })
+    }
     columnSpacing: 1
     rowSpacing: 1
     boundsBehavior: Flickable.StopAtBounds
 
     model: TableModel {
+        id:tableModel
         TableModelColumn { display: "id" }
         TableModelColumn { display: "num" }
         TableModelColumn { display: "name" }
@@ -135,6 +150,7 @@ TableView {
     //        anchors.fill: parent
     //        height: 1
     //    }
+
 
 
 }

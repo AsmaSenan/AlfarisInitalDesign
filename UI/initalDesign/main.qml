@@ -127,6 +127,15 @@ ApplicationWindow {
                             txtColor: "black"
 
                         }
+                        ButtonStyle {
+                            txt: "Add"
+                            //                            btnColor: "gray"
+                            txtColor: "black"
+                            onClicked: mainTable.insertNewRow()
+
+
+                        }
+
 
                         ButtonStyle {
                             onClicked: winld.active = true
