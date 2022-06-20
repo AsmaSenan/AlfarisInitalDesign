@@ -144,37 +144,6 @@ ApplicationWindow {
                             btnColor: "#309afc"
                             txtColor: hovered? "blak": "white"
 
-                            Loader {
-                                id: winld
-                                active: false
-                                sourceComponent: Window {
-                                    id: appWindow
-                                    title: "Basic layouts"
-                                    property int margin: 11
-                                    flags: Qt.WindowStaysOnTopHint
-
-
-                                    Component.onCompleted: {
-                                        width = mainLayout.implicitWidth + 40 * margin
-                                        height = mainLayout.implicitHeight + 10 * margin
-                                    }
-
-                                    minimumWidth: mainLayout.Layout.minimumWidth + 40 * margin
-                                    minimumHeight: mainLayout.Layout.minimumHeight + 10 * margin
-
-                                    //                                    color: 'green'
-                                    visible: true
-                                    onClosing: winld.active = false
-
-                                    AddForm {
-                                        id: mainLayout
-                                        anchors.fill: parent
-                                        anchors.margins: appWindow.margin
-                                    }
-
-                                }
-                            }
-
                         }
                         Item{
                             width: 20

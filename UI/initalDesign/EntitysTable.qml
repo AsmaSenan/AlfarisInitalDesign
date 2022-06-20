@@ -85,6 +85,39 @@ TableView {
                 implicitHeight: 30
                 icon.name: "edit"
                 icon.source: "/images/icons/images/icons/edit.png"
+                onClicked: winld.active = true
+                Loader {
+                    id: winld
+                    active: false
+                    sourceComponent: Window {
+                        id: appWindow
+                        title: "Basic layouts"
+                        property int margin: 11
+                        flags: Qt.WindowStaysOnTopHint
+
+
+                        Component.onCompleted: {
+                            width = mainLayout.implicitWidth + 40 * margin
+                            height = mainLayout.implicitHeight + 10 * margin
+                        }
+
+                        minimumWidth: mainLayout.Layout.minimumWidth + 40 * margin
+                        minimumHeight: mainLayout.Layout.minimumHeight + 10 * margin
+
+                        //                                    color: 'green'
+                        visible: true
+                        onClosing: winld.active = false
+
+                        AddForm {
+                            id: mainLayout
+                            anchors.fill: parent
+                            anchors.margins: appWindow.margin
+                        }
+
+                    }
+                }
+
+
                 background: Rectangle {
                     CustomBorder
                     {
@@ -106,6 +139,10 @@ TableView {
 
                 icon.name: "edit"
                 icon.source: "/images/icons/images/icons/delete.png"
+//                onClicked: console.log(row, column);
+
+
+                onClicked: tableModel.removeRow(row)
                 background: Rectangle {
                     CustomBorder
                     {
