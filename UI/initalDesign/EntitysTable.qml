@@ -93,9 +93,11 @@ TableView {
             column: 6
             delegate: Button {
                 implicitHeight: 30
-                icon.name: "edit"
-                icon.source: "/images/icons/images/icons/edit.png"
-                onClicked: winld.active = true
+                text: (row != 0)? "" : "Edit";
+                hoverEnabled: (row != 0)? true : false;
+                icon.name: "Edit"
+                icon.source: (row != 0)? "/images/icons/images/icons/edit.png" : "/";
+                onClicked: (row != 0)? winld.active = true : "" ;
                 Loader {
                     id: winld
                     active: false
@@ -150,6 +152,7 @@ TableView {
                 icon.name: "Delete"
                 icon.source: (row != 0)? "/images/icons/images/icons/delete.png" : "/";
                 onClicked: (row != 0)? tableModel.removeRow(row) : "" ;
+                hoverEnabled: (row != 0)? true : false;
                 background: Rectangle {
                     CustomBorder
                     {
