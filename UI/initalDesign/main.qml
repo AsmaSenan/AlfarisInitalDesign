@@ -13,13 +13,6 @@ ApplicationWindow {
     property bool inPortrait: false
     property int margin: 11
 
-    Component.onCompleted: {
-        width = mainLayout.implicitWidth + 2 * margin
-        height = mainLayout.implicitHeight + 2 * margin
-    }
-
-    minimumWidth: mainLayout.Layout.minimumWidth + 2 * margin
-    minimumHeight: mainLayout.Layout.minimumHeight + 2 * margin
 
     header: ToolBar {
         id: overlayHeader
@@ -77,7 +70,7 @@ ApplicationWindow {
                         wrapMode: Label.Wrap
                         font.pointSize: 20
                         text: "Items"
-                        anchors.horizontalCenter: parent.horizontalCenter
+                         Layout.alignment: Qt.AlignHCenter
                         horizontalAlignment: Qt.AlignHCenter
                         topPadding: 30
                     }
@@ -127,20 +120,11 @@ ApplicationWindow {
                             txtColor: "black"
 
                         }
+
+
                         ButtonStyle {
-                            txt: "Add"
-                            //                            btnColor: "gray"
-                            txtColor: "black"
                             onClicked: mainTable.insertNewRow()
-
-
-                        }
-
-
-                        ButtonStyle {
-                            onClicked: winld.active = true
                             txt: "Add Item"
-                            enabled: winld.active ? false : true
                             btnColor: "#309afc"
                             txtColor: hovered? "blak": "white"
 

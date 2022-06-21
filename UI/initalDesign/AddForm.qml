@@ -105,7 +105,7 @@ ColumnLayout {
                     radius: 2
                     border.color: "#9c9c9c"
                     border.width: 1
-}
+                }
 
             }
 
@@ -205,8 +205,8 @@ ColumnLayout {
                 TableModelColumn { display: "id" }
                 TableModelColumn { display: "num" }
                 TableModelColumn { display: "name" }
-                TableModelColumn { display: "Edite" }
-                TableModelColumn { display: "Delete" }
+                TableModelColumn { display: "edit" }
+                TableModelColumn { display: "delete" }
 
                 // Each row is one type of fruit that can be ordered
                 rows: [
@@ -323,7 +323,6 @@ ColumnLayout {
         id: buttons
         title: "Button layout"
         Layout.fillWidth: true
-        Layout.minimumWidth: rowLayout.Layout.minimumWidth + 30
 
         RowLayout {
             id: rowBtnLayout

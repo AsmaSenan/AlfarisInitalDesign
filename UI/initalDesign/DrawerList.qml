@@ -50,7 +50,7 @@ Drawer{
 //                    anchors.verticalCenter: parent.top
 //                }
 //            }
-        interactive: stackView.depth === 1
+//        interactive: stackView.depth === 1
 
 
         model: ListModel {

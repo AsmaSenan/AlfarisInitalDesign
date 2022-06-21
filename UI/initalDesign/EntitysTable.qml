@@ -15,7 +15,7 @@ TableView {
                                  amount: 0,
                                  price: 0,
                                  edit: "",
-                                 delete: ""
+                                 del: ""
 
                              })
     }
@@ -113,8 +113,6 @@ TableView {
                             height = mainLayout.implicitHeight + 10 * margin
                         }
 
-                        minimumWidth: mainLayout.Layout.minimumWidth + 40 * margin
-                        minimumHeight: mainLayout.Layout.minimumHeight + 10 * margin
 
                         //                                    color: 'green'
                         visible: true

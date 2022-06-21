@@ -12,7 +12,6 @@ Button {
         id: buttonText
         text: txt
         color: txtColor
-        font: control.font
         opacity: enabled ? 1.0 : 0.3
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
