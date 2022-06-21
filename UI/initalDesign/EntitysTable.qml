@@ -31,8 +31,8 @@ TableView {
         TableModelColumn { display: "type" }
         TableModelColumn { display: "amount" }
         TableModelColumn { display: "price" }
-        TableModelColumn { display: "Edite" }
-        TableModelColumn { display: "Delete" }
+        TableModelColumn { display: "edit" }
+        TableModelColumn { display: "del" }
 
         // Each row is one type of fruit that can be ordered
         rows: [
@@ -44,7 +44,7 @@ TableView {
                 amount: "Amount",
                 price: "Price",
                 edit: "/",
-                delete: "/"
+                del: "/"
             },
             {
                 // Each property is one cell/column.
@@ -53,7 +53,10 @@ TableView {
                 name: "AAA",
                 type: "A",
                 amount: 500,
-                price: 1.50
+                price: 1.50,
+                edit: "/",
+                del: "/"
+
             },
             {
                 // Each property is one cell/column.
@@ -62,7 +65,10 @@ TableView {
                 name: "BBB",
                 type: "B",
                 amount: 500,
-                price: 1.50
+                price: 1.50,
+                edit: "/",
+                del: "/"
+
             },
             {
                 id: 2222,
@@ -70,11 +76,15 @@ TableView {
                 name: "CCC",
                 type: "C",
                 amount: 1500,
-                price: 0.50
+                price: 0.50,
+                edit: "/",
+                del: "/"
+
             }
         ]
 
     }
+
 
 
     delegate: DelegateChooser {
@@ -136,13 +146,10 @@ TableView {
             column: 7
             delegate: Button {
                 implicitHeight: 30
-
-                icon.name: "edit"
-                icon.source: "/images/icons/images/icons/delete.png"
-//                onClicked: console.log(row, column);
-
-
-                onClicked: tableModel.removeRow(row)
+                text: (row != 0)? "" : "Delete";
+                icon.name: "Delete"
+                icon.source: (row != 0)? "/images/icons/images/icons/delete.png" : "/";
+                onClicked: (row != 0)? tableModel.removeRow(row) : "" ;
                 background: Rectangle {
                     CustomBorder
                     {
@@ -167,6 +174,7 @@ TableView {
                 onAccepted: model.display = text
                 horizontalAlignment: "AlignHCenter"
                 verticalAlignment: "AlignVCenter"
+                readOnly: (row != 0)? false : true;
                 background: Rectangle {
                     CustomBorder
                     {
