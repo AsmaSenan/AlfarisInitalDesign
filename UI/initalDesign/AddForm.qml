@@ -251,10 +251,10 @@ ColumnLayout {
 
             }
 
+            visibleEdit: false
 
-
-            editBtn: 3
-            delBtn: 4
+            editBtn: 4
+            delBtn: 3
 
         }
     }

@@ -8,6 +8,8 @@ TableView {
 
     property alias tableContent :  tableUnits.model
 //    property alias tableRow :  tableData.row
+    property bool visibleEdit
+
 
     property int editBtn
     property int delBtn
@@ -40,6 +42,7 @@ TableView {
     delegate: DelegateChooser {
 
         DelegateChoice {
+            id: editId
             column: editBtn
             delegate: Button {
                 implicitHeight: 30
@@ -47,6 +50,40 @@ TableView {
                 hoverEnabled: (row != 0)? true : false;
                 icon.name: "Edit"
                 icon.source: (row != 0)? "/images/icons/images/icons/edit.png" : "/";
+
+                visible: visibleEdit
+
+                onClicked: (row != 0)? winld.active = true : "" ;
+                Loader {
+                    id: winld
+                    active: false
+                    sourceComponent: Window {
+                        id: appWindow
+                        title: "Basic layouts"
+                        property int margin: 11
+                        flags: Qt.WindowStaysOnTopHint
+
+
+                        Component.onCompleted: {
+                            width = mainLayout.implicitWidth + 40 * margin
+                            height = mainLayout.implicitHeight + 10 * margin
+                        }
+
+
+                        //                                    color: 'green'
+                        visible: visibleEdit
+                        onClosing: winld.active = false
+
+                        AddForm {
+                            id: mainLayout
+                            anchors.fill: parent
+                            anchors.margins: appWindow.margin
+                            visible: visibleEdit
+
+                        }
+
+                    }
+                }
 
 
                 background: Rectangle {
@@ -63,6 +100,7 @@ TableView {
 
             }
         }
+
         DelegateChoice {
             column: delBtn
             delegate: Button {
