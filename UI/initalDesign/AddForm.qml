@@ -199,6 +199,41 @@ ColumnLayout {
             id: unitsTable
 
             anchors.fill: parent
+            tableCol: {
+                display: "id"
+            }
+            tableRow:[
+                {
+                    id: "ID",
+                    num: "Number",
+                    name: "Name",
+                    edit: "/",
+                    delete: "/"
+                },
+                {
+                    // Each property is one cell/column.
+                    id: 1111,
+                    num: 1010,
+                    name: "AAA",
+                    edit: "/",
+                    delete: "/"
+                },
+                {
+                    // Each property is one cell/column.
+                    id: 1111,
+                    num: 1010,
+                    name: "BBB",
+                    edit: "/",
+                    delete: "/"
+                },
+                {
+                    id: 2222,
+                    num: 2020,
+                    name: "CCC",
+                    edit: "/",
+                    delete: "/"
+                }
+            ]
 
 
             editBtn: 3

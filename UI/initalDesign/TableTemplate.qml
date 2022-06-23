@@ -6,6 +6,9 @@ import Qt.labs.qmlmodels 1.0
 
 TableView {
 
+    property alias tableCol :  tableData.TableModelColumn
+    property alias tableRow :  tableData.row
+
     property int editBtn
     property int delBtn
 
@@ -33,43 +36,17 @@ TableView {
 
     model: TableModel {
         id:tableData
-
-
+        TableModelColumn: tableCol
+//        TableModelColumn {
+//            display: "id"
+//        }
+//        TableModelColumn { display: "num" }
+//        TableModelColumn { display: "name" }
+//        TableModelColumn { display: "edit" }
+//        TableModelColumn { display: "delete" }
 
         // Each row is one type of fruit that can be ordered
-        rows: [
-            {
-                id: "ID",
-                num: "Number",
-                name: "Name",
-                edit: "/",
-                delete: "/"
-            },
-            {
-                // Each property is one cell/column.
-                id: 1111,
-                num: 1010,
-                name: "AAA",
-                edit: "/",
-                delete: "/"
-            },
-            {
-                // Each property is one cell/column.
-                id: 1111,
-                num: 1010,
-                name: "BBB",
-                edit: "/",
-                delete: "/"
-            },
-            {
-                id: 2222,
-                num: 2020,
-                name: "CCC",
-                edit: "/",
-                delete: "/"
-            }
-        ]
-
+        rows: tableRow
     }
 
 
