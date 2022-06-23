@@ -6,8 +6,8 @@ import Qt.labs.qmlmodels 1.0
 
 TableView {
 
-    property alias tableCol :  tableData.TableModelColumn
-    property alias tableRow :  tableData.row
+    property alias tableContent :  tableUnits.model
+//    property alias tableRow :  tableData.row
 
     property int editBtn
     property int delBtn
@@ -34,21 +34,7 @@ TableView {
     rowSpacing: 1
     boundsBehavior: Flickable.StopAtBounds
 
-    model: TableModel {
-        id:tableData
-        TableModelColumn: tableCol
-//        TableModelColumn {
-//            display: "id"
-//        }
-//        TableModelColumn { display: "num" }
-//        TableModelColumn { display: "name" }
-//        TableModelColumn { display: "edit" }
-//        TableModelColumn { display: "delete" }
-
-        // Each row is one type of fruit that can be ordered
-        rows: tableRow
-    }
-
+    model: tableContent
 
 
     delegate: DelegateChooser {

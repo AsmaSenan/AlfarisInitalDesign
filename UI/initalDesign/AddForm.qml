@@ -199,51 +199,64 @@ ColumnLayout {
             id: unitsTable
 
             anchors.fill: parent
-            tableCol: {
-                display: "id"
-            }
-            tableRow:[
-                {
-                    id: "ID",
-                    num: "Number",
-                    name: "Name",
-                    edit: "/",
-                    delete: "/"
-                },
-                {
-                    // Each property is one cell/column.
-                    id: 1111,
-                    num: 1010,
-                    name: "AAA",
-                    edit: "/",
-                    delete: "/"
-                },
-                {
-                    // Each property is one cell/column.
-                    id: 1111,
-                    num: 1010,
-                    name: "BBB",
-                    edit: "/",
-                    delete: "/"
-                },
-                {
-                    id: 2222,
-                    num: 2020,
-                    name: "CCC",
-                    edit: "/",
-                    delete: "/"
+            tableContent: TableModel {
+                id:tableData
+
+
+                TableModelColumn {
+                    display: "id"
                 }
-            ]
+                TableModelColumn { display: "num" }
+                TableModelColumn { display: "name" }
+                TableModelColumn { display: "edit" }
+                TableModelColumn { display: "delete" }
+
+                // Each row is one type of fruit that can be ordered
+
+
+                rows: [
+                    {
+                        id: "ID",
+                        num: "Number",
+                        name: "Name",
+                        edit: "/",
+                        delete: "/"
+                    },
+                    {
+                        // Each property is one cell/column.
+                        id: 1111,
+                        num: 1010,
+                        name: "AAA",
+                        edit: "/",
+                        delete: "/"
+                    },
+                    {
+                        // Each property is one cell/column.
+                        id: 1111,
+                        num: 1010,
+                        name: "BBB",
+                        edit: "/",
+                        delete: "/"
+                    },
+                    {
+                        id: 2222,
+                        num: 2020,
+                        name: "CCC",
+                        edit: "/",
+                        delete: "/"
+                    }
+                ]
+
+
+
+            }
+
 
 
             editBtn: 3
             delBtn: 4
 
-
-
         }
-
-
     }
 
     GroupBox {
