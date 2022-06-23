@@ -195,123 +195,15 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        TableView {
+        TableTemplate {
+            id: unitsTable
+
             anchors.fill: parent
-            columnSpacing: 1
-            rowSpacing: 1
-            boundsBehavior: Flickable.StopAtBounds
-
-            model: TableModel {
-                TableModelColumn { display: "id" }
-                TableModelColumn { display: "num" }
-                TableModelColumn { display: "name" }
-                TableModelColumn { display: "edit" }
-                TableModelColumn { display: "delete" }
-
-                // Each row is one type of fruit that can be ordered
-                rows: [
-                    {
-                        id: "ID",
-                        num: "Number",
-                        name: "Name",
-                        edit: "/",
-                        delete: "/"
-                    },
-                    {
-                        // Each property is one cell/column.
-                        id: 1111,
-                        num: 1010,
-                        name: "AAA",
-                    },
-                    {
-                        // Each property is one cell/column.
-                        id: 1111,
-                        num: 1010,
-                        name: "BBB",
-                    },
-                    {
-                        id: 2222,
-                        num: 2020,
-                        name: "CCC",
-                    }
-                ]
-
-            }
 
 
-            delegate: DelegateChooser {
+            editBtn: 3
+            delBtn: 4
 
-                DelegateChoice {
-                    column: 3
-                    delegate: Button {
-                        implicitHeight: 30
-                        icon.name: "edit"
-                        icon.source: "/images/icons/images/icons/edit.png"
-                        background: Rectangle {
-                            CustomBorder
-                            {
-                                commonBorder: true
-                                commonBorderWidth: 1
-                                borderColor: "#9c9c9c"
-                            }
-
-
-                        }
-
-
-                    }
-                }
-                DelegateChoice {
-                    column: 4
-                    delegate: Button {
-                        implicitHeight: 30
-
-                        icon.name: "edit"
-                        icon.source: "/images/icons/images/icons/delete.png"
-                        background: Rectangle {
-                            CustomBorder
-                            {
-                                commonBorder: true
-                                commonBorderWidth: 1
-                                borderColor: "#9c9c9c"
-                            }
-
-
-                        }
-
-
-                    }
-                }
-
-                DelegateChoice {
-                    delegate: TextField {
-                        text: model.display
-                        selectByMouse: true
-                        implicitWidth: 150
-                        implicitHeight: 30
-                        onAccepted: model.display = text
-                        horizontalAlignment: "AlignHCenter"
-                        verticalAlignment: "AlignVCenter"
-                        background: Rectangle {
-                            CustomBorder
-                            {
-                                commonBorder: true
-                                commonBorderWidth: 1
-                                borderColor: "#9c9c9c"
-                            }
-
-
-                        }
-
-                    }
-                }
-
-            }
-            //    Rectangle {
-            //        color: "white"
-            //        anchors.fill: parent
-            //        height: 1
-            //    }
 
 
         }
