@@ -53,37 +53,36 @@ TableView {
 
                 visible: visibleEdit
 
-                onClicked: (row != 0)? winld.active = true : "" ;
-                Loader {
-                    id: winld
-                    active: false
-                    sourceComponent: Window {
-                        id: appWindow
-                        title: "Basic layouts"
-                        property int margin: 11
-                        flags: Qt.WindowStaysOnTopHint
+//                onClicked: (row != 0)? winld.active = true : "" ;
+//                Loader {
+//                    id: winld
+//                    active: false
+//                    sourceComponent: Window {
+//                        id: appWindow
+//                        title: "Basic layouts"
+//                        property int margin: 11
+//                        flags: Qt.WindowStaysOnTopHint
 
 
-                        Component.onCompleted: {
-                            width = mainLayout.implicitWidth + 40 * margin
-                            height = mainLayout.implicitHeight + 10 * margin
-                        }
+//                        Component.onCompleted: {
+//                            width = mainLayout.implicitWidth + 40 * margin
+//                            height = mainLayout.implicitHeight + 10 * margin
+//                        }
 
 
-                        //                                    color: 'green'
-                        visible: visibleEdit
-                        onClosing: winld.active = false
+//                        //                                    color: 'green'
+//                        visible: visibleEdit
+//                        onClosing: winld.active = false
 
-                        AddForm {
-                            id: mainLayout
-                            anchors.fill: parent
-                            anchors.margins: appWindow.margin
-                            visible: visibleEdit
+//                        AddForm {
+//                            id: mainLayout
+//                            anchors.fill: parent
+//                            anchors.margins: appWindow.margin
 
-                        }
+//                        }
 
-                    }
-                }
+//                    }
+//                }
 
 
                 background: Rectangle {

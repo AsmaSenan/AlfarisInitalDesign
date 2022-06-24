@@ -5,9 +5,20 @@ import Qt.labs.qmlmodels 1.0
 
 
 TableView {
+
+    property alias tableContent :  tableUnits.model
+//    property alias tableRow :  tableData.row
+    property bool visibleEdit
+
+
+    property int editBtn
+    property int delBtn
+
+
+
     function insertNewRow(){
 
-        tableModel.insertRow(1, {
+        tableData.insertRow(1, {
                                  id:  "",
                                  num:  "",
                                  name: "",
@@ -19,84 +30,29 @@ TableView {
 
                              })
     }
+
+    id: tableUnits
     columnSpacing: 1
     rowSpacing: 1
     boundsBehavior: Flickable.StopAtBounds
 
-    model: TableModel {
-        id:tableModel
-        TableModelColumn { display: "id" }
-        TableModelColumn { display: "num" }
-        TableModelColumn { display: "name" }
-        TableModelColumn { display: "type" }
-        TableModelColumn { display: "amount" }
-        TableModelColumn { display: "price" }
-        TableModelColumn { display: "edit" }
-        TableModelColumn { display: "del" }
-
-        // Each row is one type of fruit that can be ordered
-        rows: [
-            {
-                id: "ID",
-                num: "Number",
-                name: "Name",
-                type: "Type",
-                amount: "Amount",
-                price: "Price",
-                edit: "/",
-                del: "/"
-            },
-            {
-                // Each property is one cell/column.
-                id: 1111,
-                num: 1010,
-                name: "AAA",
-                type: "A",
-                amount: 500,
-                price: 1.50,
-                edit: "/",
-                del: "/"
-
-            },
-            {
-                // Each property is one cell/column.
-                id: 1111,
-                num: 1010,
-                name: "BBB",
-                type: "B",
-                amount: 500,
-                price: 1.50,
-                edit: "/",
-                del: "/"
-
-            },
-            {
-                id: 2222,
-                num: 2020,
-                name: "CCC",
-                type: "C",
-                amount: 1500,
-                price: 0.50,
-                edit: "/",
-                del: "/"
-
-            }
-        ]
-
-    }
-
+    model: tableContent
 
 
     delegate: DelegateChooser {
 
         DelegateChoice {
-            column: 6
+            id: editId
+            column: editBtn
             delegate: Button {
                 implicitHeight: 30
                 text: (row != 0)? "" : "Edit";
                 hoverEnabled: (row != 0)? true : false;
                 icon.name: "Edit"
                 icon.source: (row != 0)? "/images/icons/images/icons/edit.png" : "/";
+
+                visible: visibleEdit
+
                 onClicked: (row != 0)? winld.active = true : "" ;
                 Loader {
                     id: winld
@@ -115,13 +71,14 @@ TableView {
 
 
                         //                                    color: 'green'
-                        visible: true
+                        visible: visibleEdit
                         onClosing: winld.active = false
 
                         AddForm {
                             id: mainLayout
                             anchors.fill: parent
                             anchors.margins: appWindow.margin
+
                         }
 
                     }
@@ -142,14 +99,15 @@ TableView {
 
             }
         }
+
         DelegateChoice {
-            column: 7
+            column: delBtn
             delegate: Button {
                 implicitHeight: 30
                 text: (row != 0)? "" : "Delete";
                 icon.name: "Delete"
                 icon.source: (row != 0)? "/images/icons/images/icons/delete.png" : "/";
-                onClicked: (row != 0)? tableModel.removeRow(row) : "" ;
+                onClicked: (row != 0)? tableData.removeRow(row) : "" ;
                 hoverEnabled: (row != 0)? true : false;
                 background: Rectangle {
                     CustomBorder
@@ -189,14 +147,5 @@ TableView {
 
             }
         }
-
     }
-    //    Rectangle {
-    //        color: "white"
-    //        anchors.fill: parent
-    //        height: 1
-    //    }
-
-
-
 }

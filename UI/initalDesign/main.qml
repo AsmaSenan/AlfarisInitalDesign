@@ -137,14 +137,14 @@ ApplicationWindow {
 
 
 
-                        TableTemplate {
+                        EntitysTable {
                             id: mainTable
                             Layout.fillWidth: true
                             Layout.fillHeight: true
                             leftMargin: 24
 
                             tableContent: TableModel {
-                                id:tableModel
+                                id:tableData
                                 TableModelColumn { display: "id" }
                                 TableModelColumn { display: "num" }
                                 TableModelColumn { display: "name" }
