@@ -195,6 +195,21 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
+
+//        onClicked: function(){
+//            var newRow = {
+//                id: "",
+//                num: "",
+//                name: "",
+//                type: "",
+//                amount: 0,
+//                price: 0.0,
+//                edit: "/",
+//                del: "/"
+//            }
+//            mainTable.insertNewRow(newRow)
+//        }
+
         TableTemplate {
             id: unitsTable
 
@@ -206,44 +221,50 @@ ColumnLayout {
                 TableModelColumn {
                     display: "id"
                 }
-                TableModelColumn { display: "num" }
-                TableModelColumn { display: "name" }
-                TableModelColumn { display: "edit" }
-                TableModelColumn { display: "delete" }
+                TableModelColumn { display: "quantity" }
+                TableModelColumn { display: "unit" }
+                TableModelColumn { display: "level" }
+                TableModelColumn { display: "barcode" }
+                TableModelColumn { display: "defaultUnit" }
+                TableModelColumn { display: "deleteUnit" }
 
                 // Each row is one type of fruit that can be ordered
 
 
                 rows: [
                     {
-                        id: "ID",
-                        num: "Number",
-                        name: "Name",
-                        edit: "/",
-                        delete: "/"
+                        quantity: "Quantity",
+                        unit: "Unit",
+                        level: "Level",
+                        barcode: "Barcode",
+                        defaultUnit: "Default",
+                        deleteUnit: "/"
                     },
                     {
                         // Each property is one cell/column.
-                        id: 1111,
-                        num: 1010,
-                        name: "AAA",
-                        edit: "/",
-                        delete: "/"
+                        quantity: 1111,
+                        unit: 1010,
+                        level: "ZZZ",
+                        barcode: "Barcode",
+                        defaultUnit: "Default",
+                        deleteUnit: "/"
                     },
                     {
                         // Each property is one cell/column.
-                        id: 1111,
-                        num: 1010,
-                        name: "BBB",
-                        edit: "/",
-                        delete: "/"
+                        quantity: 1111,
+                        unit: 1010,
+                        level: "XXX",
+                        barcode: "Barcode",
+                        defaultUnit: "Default",
+                        deleteUnit: "/"
                     },
                     {
-                        id: 2222,
-                        num: 2020,
-                        name: "CCC",
-                        edit: "/",
-                        delete: "/"
+                        quantity: 2222,
+                        unit: 2020,
+                        level: "QQQ",
+                        barcode: "Barcode",
+                        defaultUnit: "555",
+                        deleteUnit: "/"
                     }
                 ]
 
@@ -253,8 +274,8 @@ ColumnLayout {
 
             visibleEdit: false
 
-            editBtn: 4
-            delBtn: 3
+            editBtn: 6
+            delBtn: 5
 
         }
     }

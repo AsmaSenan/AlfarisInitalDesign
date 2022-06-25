@@ -50,7 +50,7 @@ TableView {
                         id: appWindow
                         title: "Basic layouts"
                         property int margin: 11
-                        flags: Qt.WindowStaysOnTopHint
+//                        flags: Qt.WindowStaysOnTopHint
 
 
                         Component.onCompleted: {
@@ -59,7 +59,6 @@ TableView {
                         }
 
 
-                        //                                    color: 'green'
                         visible: visibleEdit
                         onClosing: winld.active = false
 
