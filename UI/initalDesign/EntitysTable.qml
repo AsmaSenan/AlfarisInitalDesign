@@ -16,19 +16,8 @@ TableView {
 
 
 
-    function insertNewRow(){
-
-        tableData.insertRow(1, {
-                                 id:  "",
-                                 num:  "",
-                                 name: "",
-                                 type: "",
-                                 amount: 0,
-                                 price: 0,
-                                 edit: "",
-                                 del: ""
-
-                             })
+    function insertNewRow(newRow){
+        tableData.insertRow(1, newRow)
     }
 
     id: tableUnits
