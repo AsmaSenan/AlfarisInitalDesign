@@ -9,6 +9,7 @@
         <file>InputField.qml</file>
         <file>CustomBorder.qml</file>
         <file>TableTemplate.qml</file>
+        <file>OperationsMenu.qml</file>
     </qresource>
     <qresource prefix="/images/icons">
         <file>images/icons/delete.png</file>

@@ -76,75 +76,27 @@ ApplicationWindow {
                         topPadding: 30
                     }
 
-                    RowLayout{
+                    OperationsMenu{
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        Item{
-                            width: 20
-                        }
 
-                        TextField {
-                            Layout.fillWidth: true
-                            implicitHeight: 40
-                            verticalAlignment : TextInput.AlignVCenter
-                            font.pointSize: 12
-                            placeholderText: "Search"
 
-                        }
-                        Label{
-                            text: "in"
-                            font.pointSize: 12
-                            Layout.leftMargin: 8
-                            Layout.rightMargin: 8
-                        }
 
-                        ComboBox {
-                            implicitHeight: 40
-                            implicitWidth: 100
-                            editable: true
-                            model: ListModel {
-                                id: model
-                                ListElement { text: "All fields" }
-                                ListElement { text: "Number" }
-                                ListElement { text: "Name" }
-                                ListElement { text: "Foreign Name" }
+                        addAction:  function(){
+                            var newRow = {
+                                id: "",
+                                num: "",
+                                name: "",
+                                type: "",
+                                amount: 0,
+                                price: 0.0,
+                                edit: "/",
+                                del: "/"
                             }
-                            onAccepted: {
-                                if (find(editText) === -1)
-                                    model.append({text: editText})
-                            }
-                        }
-
-                        ButtonStyle {
-                            txt: "Search"
-                            //                            btnColor: "gray"
-                            txtColor: "black"
-
+                            mainTable.insertNewRow(newRow)
                         }
 
 
-                        ButtonStyle {
-                            onClicked: function(){
-                                var newRow = {
-                                    id: "",
-                                    num: "",
-                                    name: "",
-                                    type: "",
-                                    amount: 0,
-                                    price: 0.0,
-                                    edit: "/",
-                                    del: "/"
-                                }
-                                mainTable.insertNewRow(newRow)
-                            }
-                            txt: "Add Item"
-                            btnColor: "#309afc"
-                            txtColor: hovered? "blak": "white"
-
-                        }
-                        Item{
-                            width: 20
-                        }
                     }
 
 
