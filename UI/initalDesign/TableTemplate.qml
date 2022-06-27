@@ -7,7 +7,6 @@ import Qt.labs.qmlmodels 1.0
 TableView {
 
     property alias tableContent :  tableUnits.model
-//    property alias tableRow :  tableData.row
     property bool visibleEdit
 
 

@@ -4,8 +4,8 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 RowLayout{
-
-    property alias addAction : addRowBtn.onClicked
+    id:operationLayout
+    signal newData()
 
 
     Item{
@@ -46,19 +46,18 @@ RowLayout{
 
     ButtonStyle {
         txt: "Search"
-        //                            btnColor: "gray"
         txtColor: "black"
 
     }
 
 
     ButtonStyle {
-        id: addRowBtn
-        onClicked: addAction
 
+        id: addRowBtn
         txt: "Add Item"
         btnColor: "#309afc"
         txtColor: hovered? "blak": "white"
+        onClicked: operationLayout.newData()
 
     }
     Item{

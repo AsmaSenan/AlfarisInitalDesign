@@ -6,7 +6,7 @@ import Qt.labs.qmlmodels 1.0
 
 TableView {
 
-    property alias tableContent :  tableUnits.model
+    property alias tableContent :  tableEntity.model
 //    property alias tableRow :  tableData.row
     property bool visibleEdit
 
@@ -20,7 +20,7 @@ TableView {
         tableData.insertRow(1, newRow)
     }
 
-    id: tableUnits
+    id: tableEntity
     columnSpacing: 1
     rowSpacing: 1
     boundsBehavior: Flickable.StopAtBounds

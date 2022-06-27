@@ -15,6 +15,21 @@ ApplicationWindow {
     property int margin: 11
 
 
+    function addNewRow(){
+        newData={
+            id: "",
+            num: "",
+            name: "",
+            type: "",
+            amount: 0,
+            price: 0.0,
+            edit: "/",
+            del: "/"
+        }
+        console.log(newData)
+    }
+
+
     header: ToolBar {
         id: overlayHeader
 
@@ -79,11 +94,8 @@ ApplicationWindow {
                     OperationsMenu{
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-
-
-
-                        addAction:  function(){
-                            var newRow = {
+                        onNewData:     function(){
+                            var newRow={
                                 id: "",
                                 num: "",
                                 name: "",
@@ -95,7 +107,6 @@ ApplicationWindow {
                             }
                             mainTable.insertNewRow(newRow)
                         }
-
 
                     }
 
