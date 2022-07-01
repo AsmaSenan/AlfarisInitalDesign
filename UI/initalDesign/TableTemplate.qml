@@ -8,27 +8,10 @@ TableView {
 
     property alias tableContent :  tableUnits.model
     property bool visibleEdit
-
-
     property int editBtn
     property int delBtn
+    property int checkBtn
 
-
-
-    function insertNewRow(){
-
-        tableModel.insertRow(1, {
-                                 id:  "",
-                                 num:  "",
-                                 name: "",
-                                 type: "",
-                                 amount: 0,
-                                 price: 0,
-                                 edit: "",
-                                 del: ""
-
-                             })
-    }
 
     id: tableUnits
     columnSpacing: 1
@@ -52,36 +35,36 @@ TableView {
 
                 visible: visibleEdit
 
-//                onClicked: (row != 0)? winld.active = true : "" ;
-//                Loader {
-//                    id: winld
-//                    active: false
-//                    sourceComponent: Window {
-//                        id: appWindow
-//                        title: "Basic layouts"
-//                        property int margin: 11
-//                        flags: Qt.WindowStaysOnTopHint
+                //                onClicked: (row != 0)? winld.active = true : "" ;
+                //                Loader {
+                //                    id: winld
+                //                    active: false
+                //                    sourceComponent: Window {
+                //                        id: appWindow
+                //                        title: "Basic layouts"
+                //                        property int margin: 11
+                //                        flags: Qt.WindowStaysOnTopHint
 
 
-//                        Component.onCompleted: {
-//                            width = mainLayout.implicitWidth + 40 * margin
-//                            height = mainLayout.implicitHeight + 10 * margin
-//                        }
+                //                        Component.onCompleted: {
+                //                            width = mainLayout.implicitWidth + 40 * margin
+                //                            height = mainLayout.implicitHeight + 10 * margin
+                //                        }
 
 
-//                        //                                    color: 'green'
-//                        visible: visibleEdit
-//                        onClosing: winld.active = false
+                //                        //                                    color: 'green'
+                //                        visible: visibleEdit
+                //                        onClosing: winld.active = false
 
-//                        AddForm {
-//                            id: mainLayout
-//                            anchors.fill: parent
-//                            anchors.margins: appWindow.margin
+                //                        AddForm {
+                //                            id: mainLayout
+                //                            anchors.fill: parent
+                //                            anchors.margins: appWindow.margin
 
-//                        }
+                //                        }
 
-//                    }
-//                }
+                //                    }
+                //                }
 
 
                 background: Rectangle {
@@ -122,6 +105,29 @@ TableView {
 
             }
         }
+        DelegateChoice {
+            id: tableCell
+            column: 4
+            delegate:RadioBtn  {
+                selectByMouse: true
+
+                txt: (row != 0)? "" : "Default";
+                visibleRadio: (row != 0)? true : false
+                isCheck: (row != 0)? model.display : false
+                hoverEnabled: (row != 0)? true : false;
+
+                background: Rectangle {
+
+                    CustomBorder
+                    {
+                        commonBorder: true
+                        commonBorderWidth: 1
+                        borderColor: "#9c9c9c"
+                    }
+                }
+
+            }
+        }
 
         DelegateChoice {
             delegate: TextField {
@@ -146,5 +152,6 @@ TableView {
 
             }
         }
+
     }
 }

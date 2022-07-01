@@ -10,6 +10,7 @@
         <file>CustomBorder.qml</file>
         <file>TableTemplate.qml</file>
         <file>OperationsMenu.qml</file>
+        <file>RadioBtn.qml</file>
     </qresource>
     <qresource prefix="/images/icons">
         <file>images/icons/delete.png</file>

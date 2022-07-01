@@ -54,7 +54,7 @@ TableView {
 
 
                         Component.onCompleted: {
-                            width = mainLayout.implicitWidth + 40 * margin
+                            width = mainLayout.implicitWidth + 45 * margin
                             height = mainLayout.implicitHeight + 10 * margin
                         }
 

@@ -217,10 +217,6 @@ ColumnLayout {
             tableContent: TableModel {
                 id:tableData
 
-
-                TableModelColumn {
-                    display: "id"
-                }
                 TableModelColumn { display: "quantity" }
                 TableModelColumn { display: "unit" }
                 TableModelColumn { display: "level" }
@@ -246,7 +242,7 @@ ColumnLayout {
                         unit: 1010,
                         level: "ZZZ",
                         barcode: "Barcode",
-                        defaultUnit: "Default",
+                        defaultUnit: false,
                         deleteUnit: "/"
                     },
                     {
@@ -255,7 +251,7 @@ ColumnLayout {
                         unit: 1010,
                         level: "XXX",
                         barcode: "Barcode",
-                        defaultUnit: "Default",
+                        defaultUnit: true,
                         deleteUnit: "/"
                     },
                     {
@@ -263,7 +259,7 @@ ColumnLayout {
                         unit: 2020,
                         level: "QQQ",
                         barcode: "Barcode",
-                        defaultUnit: "555",
+                        defaultUnit: false,
                         deleteUnit: "/"
                     }
                 ]
